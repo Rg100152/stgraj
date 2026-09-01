@@ -1,0 +1,257 @@
+{
+  "tool_name": "STGRAJ",
+  "version": "3.2.0",
+  "author": "Raj Gautam",
+  "description": "Advanced System Monitor with htop-style interface",
+  "created_date": "2026-09-01",
+  "platforms": {
+    "linux": {
+      "name": "Linux",
+      "distributions": ["Ubuntu", "Debian", "Fedora", "Arch", "CentOS", "Pop!_OS"],
+      "requirements": {
+        "python_version": ">=3.7",
+        "libraries": ["psutil", "rich", "pyfiglet"]
+      },
+      "installation": {
+        "method": "apt/pip",
+        "steps": [
+          {
+            "step": 1,
+            "command": "sudo apt update && sudo apt upgrade -y",
+            "description": "Update system packages"
+          },
+          {
+            "step": 2,
+            "command": "sudo apt install python3 python3-pip -y",
+            "description": "Install Python and pip"
+          },
+          {
+            "step": 3,
+            "command": "pip3 install psutil rich pyfiglet",
+            "description": "Install required libraries"
+          },
+          {
+            "step": 4,
+            "command": "chmod +x stgraj.py",
+            "description": "Make script executable"
+          },
+          {
+            "step": 5,
+            "command": "python3 stgraj.py",
+            "description": "Run STGRAJ monitor"
+          }
+        ],
+        "alt_methods": {
+          "ubuntu_debian": "sudo apt install python3-psutil python3-rich python3-pyfiglet",
+          "fedora": "sudo dnf install python3-psutil python3-rich python3-pyfiglet",
+          "arch": "sudo pacman -S python-psutil python-rich python-pyfiglet"
+        }
+      },
+      "system_requirements": {
+        "os_arch": ["x86_64", "i686", "arm64", "armv7l"],
+        "terminal": "GNOME Terminal, Konsole, xterm, Alacritty"
+      }
+    },
+    "windows": {
+      "name": "Windows",
+      "versions": ["Windows 10", "Windows 11", "Windows Server 2019", "Windows Server 2022"],
+      "requirements": {
+        "python_version": ">=3.7",
+        "libraries": ["psutil", "rich", "pyfiglet"]
+      },
+      "installation": {
+        "method": "pip/winget",
+        "steps": [
+          {
+            "step": 1,
+            "command": "winget install Python.Python.3.11",
+            "description": "Install Python 3.11"
+          },
+          {
+            "step": 2,
+            "command": "python -m pip install --upgrade pip",
+            "description": "Upgrade pip"
+          },
+          {
+            "step": 3,
+            "command": "pip install psutil rich pyfiglet",
+            "description": "Install required libraries"
+          },
+          {
+            "step": 4,
+            "command": "python stgraj.py",
+            "description": "Run STGRAJ monitor"
+          }
+        ],
+        "alt_methods": {
+          "manual": "Download Python from python.org, install with 'Add to PATH' checked"
+        }
+      },
+      "system_requirements": {
+        "os_arch": ["x64", "x86"],
+        "terminal": "Windows Terminal, Command Prompt, PowerShell"
+      }
+    },
+    "raspberry_pi": {
+      "name": "Raspberry Pi",
+      "models": ["Raspberry Pi 4", "Raspberry Pi 5", "Raspberry Pi Zero 2 W", "Raspberry Pi 400"],
+      "os": "Raspberry Pi OS (Raspbian)",
+      "requirements": {
+        "python_version": ">=3.7",
+        "libraries": ["psutil", "rich", "pyfiglet"]
+      },
+      "installation": {
+        "method": "apt/pip",
+        "steps": [
+          {
+            "step": 1,
+            "command": "sudo apt update && sudo apt upgrade -y",
+            "description": "Update system packages"
+          },
+          {
+            "step": 2,
+            "command": "sudo apt install python3 python3-pip -y",
+            "description": "Install Python and pip"
+          },
+          {
+            "step": 3,
+            "command": "pip3 install psutil rich pyfiglet",
+            "description": "Install required libraries"
+          },
+          {
+            "step": 4,
+            "command": "chmod +x stgraj.py",
+            "description": "Make script executable"
+          },
+          {
+            "step": 5,
+            "command": "python3 stgraj.py",
+            "description": "Run STGRAJ monitor"
+          }
+        ],
+        "alt_methods": {
+          "one_line": "sudo apt install python3-psutil python3-rich python3-pyfiglet"
+        }
+      },
+      "system_requirements": {
+        "os_arch": ["armv7l", "arm64"],
+        "terminal": "LXTerminal, Raspberry Pi Terminal"
+      }
+    },
+    "macos": {
+      "name": "macOS",
+      "versions": ["macOS Catalina", "macOS Big Sur", "macOS Monterey", "macOS Ventura", "macOS Sonoma"],
+      "requirements": {
+        "python_version": ">=3.7",
+        "libraries": ["psutil", "rich", "pyfiglet"]
+      },
+      "installation": {
+        "method": "brew/pip",
+        "steps": [
+          {
+            "step": 1,
+            "command": "brew install python3",
+            "description": "Install Python 3 via Homebrew"
+          },
+          {
+            "step": 2,
+            "command": "pip3 install psutil rich pyfiglet",
+            "description": "Install required libraries"
+          },
+          {
+            "step": 3,
+            "command": "chmod +x stgraj.py",
+            "description": "Make script executable"
+          },
+          {
+            "step": 4,
+            "command": "python3 stgraj.py",
+            "description": "Run STGRAJ monitor"
+          }
+        ],
+        "alt_methods": {
+          "manual": "Download Python from python.org, install with 'Add to PATH' checked",
+          "brew": "brew install python3 && pip3 install psutil rich pyfiglet"
+        }
+      },
+      "system_requirements": {
+        "os_arch": ["arm64", "x86_64"],
+        "terminal": "Terminal, iTerm2"
+      }
+    }
+  },
+  "features": {
+    "system_monitor": {
+      "cpu": {
+        "total_usage": true,
+        "per_core_usage": true,
+        "frequency": true,
+        "temperature": true,
+        "load_average": true
+      },
+      "memory": {
+        "ram_usage": true,
+        "swap_usage": true,
+        "available_memory": true,
+        "total_memory": true
+      },
+      "disk": {
+        "usage": true,
+        "read_speed": true,
+        "write_speed": true,
+        "partitions": true
+      },
+      "network": {
+        "download_speed": true,
+        "upload_speed": true,
+        "total_traffic": true
+      },
+      "processes": {
+        "pid": true,
+        "user": true,
+        "priority": true,
+        "nice": true,
+        "virtual_memory": true,
+        "resident_memory": true,
+        "shared_memory": true,
+        "gpu_usage": true,
+        "memory_percent": true,
+        "time": true,
+        "command": true
+      }
+    },
+    "controls": {
+      "quit": "Q",
+      "sort_by_cpu": "1",
+      "sort_by_memory": "2",
+      "sort_by_pid": "3",
+      "sort_by_name": "4",
+      "matrix_effect": "M",
+      "kill_process": "K"
+    }
+  },
+  "troubleshooting": {
+    "common_issues": [
+      {
+        "issue": "Library not found",
+        "solution": "pip install psutil rich pyfiglet"
+      },
+      {
+        "issue": "Permission denied",
+        "solution": "chmod +x stgraj.py"
+      },
+      {
+        "issue": "Python not found",
+        "solution": "Install Python 3.7+ from python.org"
+      },
+      {
+        "issue": "MAGENTA not defined",
+        "solution": "Update code or download latest version"
+      }
+    ],
+    "check_installation": {
+      "command": "python3 -c \"import psutil, rich, pyfiglet; print('All libraries installed!')\"",
+      "success_message": "All libraries installed!"
+    }
+  }
+}
